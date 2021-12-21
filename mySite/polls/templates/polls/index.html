@@ -1,0 +1,24 @@
+{% extends "polls/base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}">
+{%block list%}
+{% if latest_question_list %}
+
+<div class="d-flex p-2 bd-highlight justify-content-around align-items-center mt-32">
+  {% for question in latest_question_list %}
+    
+  <div class="card text-white bg-dark mb-3 " style="max-width: 18rem;">
+    <div class="card-header">Quizz {{ forloop.counter }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ question.question_text }}</h5>
+        <button type="button" class="btn btn-primary "><a class="text-white text-decoration-none" href="{% url 'polls:detail' question.id %}"> Vote Now </a></button>
+      </div>
+  </div>
+
+  {%endfor%}
+</div>
+
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+{% endblock list%}

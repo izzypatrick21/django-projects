@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tasks/style.css' %}">
+
+
+<div class="center-column">
+    <h3>Update Task</h3>
+
+    <form method="POST" action="">
+
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <input class = "btn btn-large btn-info" type="submit" value="Update Task" />
+    </form>
+
+        <div>
+            <p>{{task.title}}</p>
+        </div>
+</div>
